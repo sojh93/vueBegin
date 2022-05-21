@@ -17,7 +17,11 @@
         // Object.defineProperty(대상 객체, 객체의 속성. {
         //     정의할 내용
         // })
-        Object.defineProperty(viewModel, 'str', {
+        
+        // 즉시실행함수(자바스크립트 기본 문법 - 정의되자마자 즉시 실행되는 함수.)
+        (function() {
+            function init() {
+            Object.defineProperty(viewModel, 'str', {
             // 속성에 접근했을 때의 동작을 정의
             get: function() {
                 console.log('접근');
@@ -25,9 +29,18 @@
             // 속성에 값을 할당했을 때의 동작을 정의
             set: function(newValue) {
                 console.log('할당', newValue);
-                div.innerHTML = newValue;
+                render(newValue);
             }
-        })
+        });
+        }
+       
+        function render(value) {
+            div.innerHTML = value;
+        }
+
+        init();
+        })();
+        
     </script>
 </body>
 </html>
