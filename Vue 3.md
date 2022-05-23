@@ -28,34 +28,34 @@
 ### 템플릿 디렉티브
     1. v-model의 컴포넌트 사용법 재정의.
     2. 노드들의 key 사용방법이 변경됨.
-    3. 같은 요소에 ```v-if```와 ```v-for```가 사용될 때 우선순위가 변경됨.
-    4. ```v-bind = "object"```는 순서에 민감하게 됨.
+    3. 같은 요소에 v-if와 v-for가 사용될 때 우선순위가 변경됨.
+    4. v-bind = "object"는 순서에 민감하게 됨.
     5. v-for 내부의 ref는 더이상 refs 참조 배열을 자동생성하지 않음.
   
 ### 컴포넌트들
     1. 함수형 컴포넌트는 오직 일반 함수를 사용해서만 만들 수 있다.
-    2. 싱글파일 컴포넌트(SFC)의 ```<template>```과 함수형 컴포넌트 옵션의 functional 속성은 더이상 사용 x.
-    3. 비동기 컴포넌트 생성을 위해 ```defineAsyncComponent``` 메서드 필요.
+    2. 싱글파일 컴포넌트(SFC)의 <template>과 함수형 컴포넌트 옵션의 functional 속성은 더이상 사용 x.
+    3. 비동기 컴포넌트 생성을 위해 defineAsyncComponent 메서드 필요.
   
 ### 렌더 함수
     1. 렌더함수 API 변경됨.
-    2. ```$scopedSlots``` 속성이 제거되고 모든 슬롯이 $slots를 통해 함수로 노출됨.
+    2. $scopedSlots 속성이 제거되고 모든 슬롯이 $slots를 통해 함수로 노출됨.
   
 ### 커스텀 요소들
-    1. 커스텀 요소 허용이 ```Template``` 컴파일 시 수행된다.
-    2. 사용자 지정 속성 ```is```의 사용은 예약어인 ```<component>``` 태그로 제한된다.
+    1. 커스텀 요소 허용이 Template 컴파일 시 수행된다.
+    2. 사용자 지정 속성 is의 사용은 예약어인 <component>태그로 제한된다.
     
 ### 기타 소소한 변경사항들
-    1. ```destroyed``` 라이프사이클 옵션 명칭이 ```unmounted```로 변경된다.
-    2. ```beforeDestroy``` 생명주기 옵션의 명칭이 ```beforeUnmount```로 변경된다.
-    3. Props ```default``` 팩토리 함수는 더이상 ```this```에 접근할 수 없다.
+    1. ```destroyed``` 라이프사이클 옵션 명칭이 unmounted로 변경된다.
+    2. beforeDestroy 생명주기 옵션의 명칭이 beforeUnmount로 변경된다.
+    3. Props default 팩토리 함수는 더이상 this에 접근할 수 없다.
     4. 컴포넌트 라이프사이클에 맞게 사용자 지정 디렉티브 API가 변경됨.
-    5. ```data``` 옵션은 항상 함수로 선언되어야 함.
-    6. mixins의 ```data``` 옵션은 얕게 병합된다.
+    5. data 옵션은 항상 함수로 선언되어야 함.
+    6. mixins의 data 옵션은 얕게 병합된다.
     7. 속성 강제 방법이 변경됨.
     8. 몇몇 Transition 클래스의 명칭 변경됨.
-    9. 배열에서 watch 콜백은 배열이 교체될 때만 발생. 배열의 변경사항에 대해 watch 콜백 실행하려면, 반드시 ```deep``` 옵션을 설정해줘야 한다.
-    10. 특수 디렉티브(```v-if``` / ```else-if``` / ```else```, ```v-for``` 또는 ```v-slot```)이 없는 ```<template>```태그는 <br>
+    9. 배열에서 watch 콜백은 배열이 교체될 때만 발생. 배열의 변경사항에 대해 watch 콜백 실행하려면, 반드시 deep 옵션을 설정해줘야 한다.
+    10. 특수 디렉티브(v-if / else-if / else, v-for 또는 v-slot)이 없는 <template>태그는 <br>
         일반 요소로 처리되며 내부 콘텐츠를 렌더링하는 대신 native <template> 요소가 된다.
     11. Vue 2.x에서 애플리케이션 루트 컨테이너의 outerHTML은 루트 컴포넌트 템플릿으로 대체된다.<br>
         Vue 3.x에서는 애플리케이션 컨테이너의 innerHTML을 대신 사용한다.
