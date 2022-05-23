@@ -1,9 +1,20 @@
 # 시작하기
 [vue 시작하기](https://v3.ko.vuejs.org/guide/migration/introduction.html)
 
+1. CDN
+2. Codepen
+3. CodeSandbox
+4. Vite(npm init vite-app hello-vue3)
+5. Vue CLI(npm install -g @vue/cli)
+
 # 개요
 
 ## 주목할만한 새로운 기능들
+1. Composition API
+2. Teleport
+3. Fragments
+4. Emits 컴포넌트 옵션
+5. 커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer
 
 ## 주의해야 할 변경사항들
 
