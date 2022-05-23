@@ -1,6 +1,5 @@
-# vue 3
-
 # 시작하기
+[vue 시작하기](https://v3.ko.vuejs.org/guide/migration/introduction.html)
 
 # 개요
 
