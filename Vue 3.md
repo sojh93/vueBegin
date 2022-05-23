@@ -1,4 +1,4 @@
-# 시작하기
+# 1. 시작하기
 [vue 시작하기](https://v3.ko.vuejs.org/guide/migration/introduction.html)
 
 1. CDN
@@ -7,7 +7,7 @@
 4. Vite(npm init vite-app hello-vue3)
 5. Vue CLI(npm install -g @vue/cli)
 
-# 개요
+# 2. 개요
 
 ## 주목할만한 새로운 기능들
 1. [Composition API](https://v3.ko.vuejs.org/ko-kr/guide/composition-api-introduction.html)
@@ -98,7 +98,7 @@ vue-class-component	| []![beta]	| [[GitHub]]
 vue-loader | []![beta] | [[GitHub]]
 rollup-plugin-vue | []![beta] | [[GitHub]]
 
-# 상세
+# 3. 상세
 
 ## v-for Array Refs
 ## 비동기 컴포넌트
