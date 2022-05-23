@@ -14,17 +14,26 @@
 2. [Teleport](https://v3.ko.vuejs.org/ko-KR/guide/teleport.html)
 3. [Fragments](https://v3.ko.vuejs.org/ko-KR/guide/migration/fragments.html)
 4. Emits 컴포넌트 옵션
-5. 커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer
+5. 커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer API
+6. <script setup> - SFC Composition API의 더 쉬운 표현
+7. <style vars> - SFC State-driven CSS 변수
+8. <style scoped> - 전역 규칙으로 사용하거나 특정 slot의 규칙으로 사용가능.
 
 ## 주의해야 할 변경사항들
 
 ### 전역 API
--> 전역 Vue API가 애플리케이션 인스턴스를 사용하도록 변경됨.
+-> 전역 Vue API가 애플리케이션 인스턴스를 사용하도록 변경됨.<br/>
 -> 글로벌 및 내부 API가 트리쉐이킹(죽은 코드 제거)이 가능하도록 재구성됨.
 
 ### 템플릿 디렉티브
--> 
+1. v-model의 컴포넌트 사용법 재정의.
+2. 노드들의 key 사용방법이 변경됨.
+3. 같은 요소에 v-if와 v-for가 사용될 때 우선순위가 변경됨.
+4. v-bind = "object"는 순서에 민감하게 됨.
+5. v-for 내부의 ref는 더이상 refs 참조 배열을 자동생성하지 않음.
+  
 ### 컴포넌트들
+->
 ### 렌더 함수
 ### 커스텀 요소들
 ### 기타 소소한 변경사항들
