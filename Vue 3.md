@@ -10,9 +10,9 @@
 # 개요
 
 ## 주목할만한 새로운 기능들
-1. Composition API
-2. Teleport
-3. Fragments
+1. [Composition API](https://v3.ko.vuejs.org/ko-kr/guide/composition-api-introduction.html)
+2. [Teleport](https://v3.ko.vuejs.org/ko-KR/guide/teleport.html)
+3. [Fragments](https://v3.ko.vuejs.org/ko-KR/guide/migration/fragments.html)
 4. Emits 컴포넌트 옵션
 5. 커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer
 
