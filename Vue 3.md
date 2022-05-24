@@ -13,9 +13,9 @@
 1. [Composition API](https://v3.ko.vuejs.org/ko-kr/guide/composition-api-introduction.html)
 2. [Teleport](https://v3.ko.vuejs.org/ko-KR/guide/teleport.html)
 3. [Fragments](https://v3.ko.vuejs.org/ko-KR/guide/migration/fragments.html)
-4. Emits 컴포넌트 옵션
-5. 커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer API
-6. <script setup> - SFC Composition API의 더 쉬운 표현
+4. [Emits 컴포넌트 옵션](https://v3.ko.vuejs.org/ko-KR/guide/component-custom-events.html)
+5. [커스텀 렌더들을 생성하기 위한 @vue/runtime-core의 createRenderer API](https://github.com/vuejs/core/tree/main/packages/runtime-core)
+6. <script setup> - SFC Composition API의 더 쉬운 표현(404error)
 7. <style vars> - SFC State-driven CSS 변수
 8. <style scoped> - 전역 규칙으로 사용하거나 특정 slot의 규칙으로 사용가능.
 
@@ -46,7 +46,7 @@
     2. 사용자 지정 속성 is의 사용은 예약어인 <component>태그로 제한된다.
     
 ### 기타 소소한 변경사항들
-    1. ```destroyed``` 라이프사이클 옵션 명칭이 unmounted로 변경된다.
+    1. destroyed 라이프사이클 옵션 명칭이 unmounted로 변경된다.
     2. beforeDestroy 생명주기 옵션의 명칭이 beforeUnmount로 변경된다.
     3. Props default 팩토리 함수는 더이상 this에 접근할 수 없다.
     4. 컴포넌트 라이프사이클에 맞게 사용자 지정 디렉티브 API가 변경됨.
