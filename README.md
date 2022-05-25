@@ -1,6 +1,28 @@
 # 1. 시작하기
 [vue 시작하기](https://v3.ko.vuejs.org/guide/migration/introduction.html)
+[vue란 무엇인가요?](https://v3.ko.vuejs.org/guide/introduction.html#vue-js%E1%84%80%E1%85%A1-%E1%84%86%E1%85%AE%E1%84%8B%E1%85%A5%E1%86%BA%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A1%E1%84%8B%E1%85%AD)
+-> 프로그레시브 프레임워크. 핵심 라이브러리는 뷰 레이어에만 초점을 맞추어 다른 라이브러리나 기존 프로젝트와의 통합 쉬움.
 
+## 선언적 렌더링
+-> 간단한 템플릿 구문을 사용해서 DOM에서 데이터를 선언적으로 렌더링 할 수 있다.
+```
+<div id="counter">
+  Counter: {{ counter }}
+</div>
+----------------------------------
+const Counter = {
+  data() {
+    return {
+      counter: 0
+    }
+  }
+}
+
+Vue.createApp(Counter).mount('#counter')
+
+----------------------------------
+
+```
 1. CDN
 2. Codepen
 3. CodeSandbox
