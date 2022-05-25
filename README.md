@@ -23,6 +23,183 @@ Vue.createApp(Counter).mount('#counter')
 ----------------------------------
 
 ```
+## 텍스트 보간 외 엘리먼트 속성 부여 가능.
+```
+<div id="bind-attribute">
+  <span v-bind:title="message">
+    여기에 마우스를 올려두고 잠시 기다리면 제목이 동적으로 바뀝니다!
+  </span>
+</div>
+
+const AttributeBinding = {
+  data() {
+    return {
+      message: '이 페이지를 다음 시간에 열었습니다. ' + new Date().toLocaleString()
+    }
+  }
+}
+
+Vue.createApp(AttributeBinding).mount('#bind-attribute')
+
+```
+## 사용자 입력 핸들링
+```
+<div id="event-handling">
+  <p>{{message}}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+const EventHandling = {
+  data() {
+    return {
+      message: 'Hello Vue.js!'
+      }
+    },
+    methods: {
+      reverseMessage() {
+        this.message = this.message
+          .split('')
+          .reverse()
+          .join('')
+      }
+    }
+  }
+  Vue.createApp(EventHandling).mount('#event-handling')
+  ```
+  
+  ## 양식 입력과 앱 상태를 양방향으로 바인딩하는 ```v-model```디렉티브
+  
+  ``` <div id="two-way-binding">
+    <p>{{message}}</p>
+    <input v-model="message"/>
+  </div>
+  
+  const TwoWayBinding = {
+    data() {
+      return {
+        message: 'Hello Vue!'
+        }
+      }
+    }
+    Vue.createApp(TwoWayBinding).mount('#two-way-binding')
+  ```
+   ## 조건문과 반복문
+  ```
+  <div id="conditional-rendering">
+    <span v-if="seen">이제 나를 볼 수 있어용</span>
+  </div>
+  
+  const ConditionalRendering = {
+    data() {
+      return {
+        seen: true
+      }
+    }
+  }
+  Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
+  ```
+  
+  ## ```v-for``` 디렉티브
+  -> 배열에서 데이터를 가져와 아이템 목록을 표시하는 데 사용.
+  
+  ```
+  <div id="list-rendering">
+    <ol>
+      <li v-for="todo in todos">
+        {{todo.text}}
+      </li>
+    </ol>
+  </div>
+  
+  const ListRendering = {
+    data() {
+      return {
+       todos: [
+        { text: 'Learn JavaScript'},
+        { text: 'Learn Vue'},
+        { text: 'Build something awesome'}
+      ]
+    }
+  }
+}
+
+Vue.createApp(ListRendering).mount('#list-rendering')
+```
+## 컴포넌트로 조립하기
+```
+// 뷰 어플리케이션 생성
+const app = Vue.createApp(...)
+
+// todo-item 이란 이름의 새로운 컴포넌트 선언
+app.component('todo-item', {
+  template: `<li>할일이 있어요</li>`
+})
+
+// 애플리케이션을 마운트.
+app.mount(...)
+
+<ol>
+  <!-- todo-item 컴포넌트의 인스턴스를 만든다. -->
+  <todo-item></todo-item>
+</ol>
+
+app.component('todo-item', {
+  props: ['todo],
+  template: `<li>{{todo.text}}</li>`
+})
+```
+```v-bind```를 사용하여 할일을 개별 todo-item 컴포넌트에 전달.
+
+```
+<div id="todo-list-app">
+  <ol>
+    <!--
+      이제 할일 todo-item 에 할일을 전달한다.
+      콘텐츠는 동적으로 표현된다. -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id"
+      ></todo-item>
+    </ol>
+  </div>
+  
+  const TodoList = {
+    data() {
+      return {
+        groceryList: [
+          {id: 0, text: '야채' },
+          {id: 1, text: '치즈' },
+          {id: 2, text: '사람이 먹을 수 있는 거라면 뭐든지'}
+        ]
+      }
+    }
+  }
+  
+  const app = Vue.createApp(TodoList)
+  
+  app.component('todo-item', {
+    props: ['todo'],
+    template: `<li>{{todo.text}}</li>`
+  })
+  
+  app.mount('#todo-list-app')
+  ```
+  
+  컴포넌트는 다음과 같이 조합할 수 있다.
+  
+  ```
+  <div id="app">
+    <app-nav></app-nav>
+    <app-view>
+      <app-sidebar></app-sidebar>
+      <app-content></app-content>
+    </app-view>
+  </div>
+  ```
+  
+  
+
 1. CDN
 2. Codepen
 3. CodeSandbox
