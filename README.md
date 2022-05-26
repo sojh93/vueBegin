@@ -197,7 +197,72 @@ app.component('todo-item', {
     </app-view>
   </div>
   ```
+  ## 조건문과 반복문
+  ```
+  <div id="conditional-rendering">
+    <span v-if="seen">이제 나를 볼 수 있어요</span>
+  </div>
   
+  const ConditionalRendering = {
+    data() {
+      return {
+        seen: true
+        }
+      }
+    }
+    Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
+  ```
+  텍스트, 속성뿐만 아니라 DOM의 구조에도 데이터를 바인딩 할 수 있다. mount, update, unmount 때 자동으로 전환효과를 적용해준다.(vue 자체적으로)
+  
+  ```
+  const ConditionalRenderingApp = {
+    data() {
+      return {
+        seen: true
+      }
+    }
+  }
+  Vue.createApp(ConditionalRenderingApp).rendering')
+  
+  <div id="list-rendering">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text}}
+      </li>
+    </ol>
+  </div>
+  
+  const ListRendering = {
+    data() {
+      return {
+        todos: [
+          { text: 'Learn JavaScript'},
+          { text: 'Learn Vue'},
+          { text: 'Build something awesome'}
+        ]
+      }
+    }
+  }
+  
+  Vue.createApp(ListRendering).mount('#list-rendering')
+  ```
+  # 2. 애플리케이션 & 컴포넌트 인스턴스
+  
+  ## 애플리케이션 인스턴스 생성하기
+  -> 모든 Vue 애플리케이션은 ```createApp``` 함수를 사용하여 새로운 **애플리케이션 인스턴스**를 생성하여 시작한다.
+  
+  ```
+  const app = Vue.createApp({ /* options */})
+  app.component('SearchInput', SearchInputComponent)
+  app.directive('focus', FocusDirective)
+  app.use(LocalePlugin)
+  
+  
+  
+  
+  
+  
+ 
   
 
 1. CDN
