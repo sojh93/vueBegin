@@ -67,7 +67,7 @@ const EventHandling = {
   Vue.createApp(EventHandling).mount('#event-handling')
   ```
   
-  ## 양식 입력과 앱 상태를 양방향으로 바인딩하는 ```v-model```디렉티브
+## 양식 입력과 앱 상태를 양방향으로 바인딩하는 ```v-model```디렉티브
   
   ``` <div id="two-way-binding">
     <p>{{message}}</p>
@@ -83,7 +83,7 @@ const EventHandling = {
     }
     Vue.createApp(TwoWayBinding).mount('#two-way-binding')
   ```
-   ## 조건문과 반복문
+## 조건문과 반복문
   ```
   <div id="conditional-rendering">
     <span v-if="seen">이제 나를 볼 수 있어용</span>
@@ -99,7 +99,7 @@ const EventHandling = {
   Vue.createApp(ConditionalRendering).mount('#conditional-rendering')
   ```
   
-  ## ```v-for``` 디렉티브
+## ```v-for``` 디렉티브
   -> 배열에서 데이터를 가져와 아이템 목록을 표시하는 데 사용.
   
   ```
@@ -197,7 +197,7 @@ app.component('todo-item', {
     </app-view>
   </div>
   ```
-  ## 조건문과 반복문
+## 조건문과 반복문
   ```
   <div id="conditional-rendering">
     <span v-if="seen">이제 나를 볼 수 있어요</span>
@@ -246,16 +246,66 @@ app.component('todo-item', {
   
   Vue.createApp(ListRendering).mount('#list-rendering')
   ```
-  # 2. 애플리케이션 & 컴포넌트 인스턴스
+# 2. 애플리케이션 & 컴포넌트 인스턴스
   
-  ## 애플리케이션 인스턴스 생성하기
+## 애플리케이션 인스턴스 생성하기
   -> 모든 Vue 애플리케이션은 ```createApp``` 함수를 사용하여 새로운 **애플리케이션 인스턴스**를 생성하여 시작한다.
   
   ```
-  const app = Vue.createApp({ /* options */})
+  const app = Vue.createApp({/* options */})
   app.component('SearchInput', SearchInputComponent)
   app.directive('focus', FocusDirective)
   app.use(LocalePlugin)
+  ```
+  
+ *애플리케이션 인스턴스로 노출된 대부분의 메소드들은 동일한 인스턴스를 반환하여 연결(chaining)을 허용한다.('.'으로 연결한다는 뜻인 듯)*
+  ```
+  Vue.createApp({})
+    .component('SearchInput', SearchInputComponent)
+    .directive('focus', FocusDirective)
+    .use(LocalePlugin)
+  ```
+  
+## 최상위(Root) 컴포넌트
+  
+  'createApp'에 전달된 옵션은 **루트 컴포넌트**를 구성하는데 사용된다.<br/>
+  이 컴포넌트는 애플리케이션을 mount할 때, 렌더링의 시작점으로 사용된다.<br/>
+  애플리케이션을 DOM요소에 마운트한다.<br/>
+  ex) Vue 애플리케이션을 **<div id="app"></div>**에 마운트하려면 #app을 전달해야 한다.</br></br>
+ 
+ mount는 애플리케이션이 아닌 루트 컴포넌트 인스턴스를 반환한다.</br>
+ 
+ ```
+ const RootComponent = { /* options */ }
+ const app = Vue.createApp(RootComponent)
+ const vm = app.mount('#app')
+ ```
+ *vm은 (ViewModel의 줄임말로 사용된다. Vue가 MVVM패턴과 밀접하게 관련있어서 이렇게 쓰는 듯)*</br>
+ 
+## 라이프 사이클 훅
+-> 각 컴포넌트는 생성될 때 일련의 초기화 단계를 거친다.</br>
+ex) 데이터 관찰, 템플릿 컴파일, 인스턴스를 DOM에 마운트, 데이터 변경 시 DOM을 업데이트 해야한다.</br>
+이 과정에서 라이프사이클 훅 함수도 실행하여 사용자가 특정 단계에서 자신의 코드를 추가할 수 있는 기회를 제공한다.</br>
+
+```
+Vue.createApp({
+  data() {
+    return { count: 1}
+  },
+  created() {
+    // `this` points to the vm instance
+    console.log('count is: ' + this.count) // => "count is: 1"
+  }
+})
+```
+인스턴스 라이프사이클에는 mounted, updated, unmounted 훅도 있음. 모든 라이프사이클 훅에는 Vue 인스턴스를 가리키는 this 컨텍스트와 함께 호출된다.
+
+### TIP
+! options 속성이나 콜백에서 ~~ created: () => console.log(this.a) 또는 (vm.$watch('a', newValue => this.myMethod())~~ 과 같은 화살표 함수를 사용하지 말 것.</br>
+  화살표 함수는 this가 없기 때문에, this는 다른 변수로 취급되거나 호출한 변수를 발견할 때까지 부모 스코프에서 해당 변수를 찾을 것임.</br>
+  이 때문에 ```Uncaught TypeError: Cannot read property of undefined``` 또는 ```Uncaught TypeError: this.myMethod is not a function```와 같은 오류가 발생한다.
+  
+  
   
   
   
