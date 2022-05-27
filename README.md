@@ -301,7 +301,7 @@ Vue.createApp({
 인스턴스 라이프사이클에는 mounted, updated, unmounted 훅도 있음. 모든 라이프사이클 훅에는 Vue 인스턴스를 가리키는 this 컨텍스트와 함께 호출된다.
 
 ### TIP
-! options 속성이나 콜백에서 ~~ created: () => console.log(this.a) 또는 (vm.$watch('a', newValue => this.myMethod())~~ 과 같은 화살표 함수를 사용하지 말 것.</br>
+! options 속성이나 콜백에서 ~~created: () => console.log(this.a) 또는 (vm.$watch('a', newValue => this.myMethod())~~ 과 같은 화살표 함수를 사용하지 말 것.</br>
   화살표 함수는 this가 없기 때문에, this는 다른 변수로 취급되거나 호출한 변수를 발견할 때까지 부모 스코프에서 해당 변수를 찾을 것임.</br>
   이 때문에 ```Uncaught TypeError: Cannot read property of undefined``` 또는 ```Uncaught TypeError: this.myMethod is not a function```와 같은 오류가 발생한다.
   
